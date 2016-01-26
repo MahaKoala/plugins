@@ -15,6 +15,6 @@ namespace UlteriusPlugins
         string Description { get; }
         Guid GUID { get; }
         object Start();
-        object Start(object args);
+        object Start(List<object> args);
     }
 }
