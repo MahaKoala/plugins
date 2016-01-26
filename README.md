@@ -120,7 +120,7 @@ args: ['dffb3f56-9323-4fc9-bee9-20d01e0231f0', 'c:/users/andrew/desktop/hop.ahk'
 
 ### Verify your plugin is loaded
 
-```
+```javascript
 var packet = {
 endpoint: 'getplugins',
 apiKey: 'XLXffaxpny4LsHyRt9KM8pO3nSKM85adZXi'
@@ -128,13 +128,13 @@ apiKey: 'XLXffaxpny4LsHyRt9KM8pO3nSKM85adZXi'
 ```
 
 Produces
-```
+```json
 {"endpoint":"getplugins","syncKey":null,"results":{"dffb3f56-9323-4fc9-bee9-20d01e0231f0":{"Name":"My Awesome Plugin","Version":1,"Author":"Andrew","Website":"https://twitter.com/AndrewMD5","Description":"A Really Awesome Plugin!","GUID":"dffb3f56-9323-4fc9-bee9-20d01e0231f0"}}}
 ```
 
 You can also see if it failed to load by doing
 
-```
+```javascript
 var packet = {
 endpoint: 'getbadplugins',
 apiKey: 'XLXffaxpny4LsHyRt9KM8pO3nSKM85adZXi'
@@ -142,6 +142,6 @@ apiKey: 'XLXffaxpny4LsHyRt9KM8pO3nSKM85adZXi'
 ```
 
 Which produces
-```
+```json
 {"endpoint":"getbadplugins","syncKey":null,"results":["BadPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"]}
 ```
