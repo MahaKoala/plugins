@@ -98,7 +98,7 @@ Alternatively, you can have arguments.
 ```
 
 Returns 
-```
+```json
 {"endpoint":"plugin","syncKey":null,"results":{"pluginData":{"textData":"Hello World! I am a text file!"},"pluginStarted":true}}
 ```
 
