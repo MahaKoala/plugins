@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace UlteriusPluginBase
 {
@@ -59,15 +60,30 @@ namespace UlteriusPluginBase
         public virtual double Version { get; protected set; }
 
         /// <summary>
+        /// IF true then we call Setup(); to do things on load.
+        /// </summary>
+        public virtual bool RequiresSetup { get; protected set; }
+
+        /// <summary>
         /// Plugin's configuration
         /// </summary>
         public virtual ConfigurationBase Configuration { get; set; }
 
+
+        /// <summary>
+        /// So we can expose the main tray icon to all plugins, they will still need permission to access the UI.
+        /// </summary>
+        public virtual NotifyIcon NotificationIcon { get; set; }
+
         /// <summary>
         /// Actually run our code
         /// </summary>
-        public abstract object Start();
-        public abstract object Start(List<object> args);
+        public abstract object Start(List<object> args = null);
+
+        /// <summary>
+        /// Run setup code, there is no return value.
+        /// </summary>
+        public abstract void Setup();
 
         /// <summary>
         /// Default constructor

@@ -108,12 +108,13 @@ namespace UlteriusPluginBase
                     pset.AddPermission(new FileIOPermission(PermissionState.Unrestricted));
                     pset.AddPermission(new ConfigurationPermission(PermissionState.Unrestricted));
                     pset.Assert();
-                    
-                    pluginInstance.Configuration =
-                        typeof(ConfigurationBase)
-                        .GetMethod("Open")
-                        .MakeGenericMethod(pluginConfigurationType)
-                        .Invoke(null, new object[] { Path.GetFileNameWithoutExtension(fullName), processPath }) as ConfigurationBase;
+
+                    if (pluginInstance != null)
+                        pluginInstance.Configuration =
+                            typeof(ConfigurationBase)
+                                .GetMethod("Open")
+                                .MakeGenericMethod(pluginConfigurationType)
+                                .Invoke(null, new object[] { Path.GetFileNameWithoutExtension(fullName), processPath }) as ConfigurationBase;
                 }
                 finally
                 {
