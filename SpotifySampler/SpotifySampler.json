@@ -1,0 +1,8 @@
+﻿{
+   "Manifest":{
+      "Permissions":[
+         "System.Security.Permissions.FileIOPermission",
+		 "System.Net.WebPermission"
+      ]
+   }
+}
