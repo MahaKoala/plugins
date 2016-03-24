@@ -1,5 +1,7 @@
 ﻿using System.Configuration;
+
 using UlteriusPluginBase;
+
 
 namespace SpotifySampler.Logic
 {

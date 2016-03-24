@@ -43,7 +43,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Net.Http" />
     <Reference Include="UlteriusPluginBase">
-      <HintPath>..\..\..\..\..\Downloads\UlteriusPluginBase.dll</HintPath>
+      <HintPath>..\..\StrikeTaskManager\RemoteTaskServer\extensions\UlteriusPluginBase.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

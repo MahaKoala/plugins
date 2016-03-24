@@ -13,6 +13,7 @@ namespace SpotifySampler.Logic
 
         public async Task<List<TrackModel>> Search(string term)
         {
+           
             var client = new SpotifyRequestHandler();
             client.DataReceivedHandler += client_DataReceivedHandler;
             await client.Search(term);

@@ -9,8 +9,8 @@ namespace UlteriusPluginBase
     /// <summary>
     /// Base class for a plugin
     /// </summary>
-    [Serializable]
-    public abstract class PluginBase 
+   
+    public abstract class PluginBase : MarshalByRefObject
     {
        /// <summary>
         /// Plugin's name
@@ -84,6 +84,13 @@ namespace UlteriusPluginBase
         /// Run setup code, there is no return value.
         /// </summary>
         public abstract void Setup();
+
+        /// <summary>
+        /// Plugin's Event Handler
+        /// </summary>
+        public virtual EventHandler PluginEvent { get; set; }
+
+
 
         /// <summary>
         /// Default constructor

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Threading.Tasks;
 using SpotifySampler.Logic;
 using SpotifySampler.Properties;
 using UlteriusPluginBase;
@@ -21,8 +23,19 @@ namespace SpotifySampler
             GUID = new Guid("e64109e0-38a5-42dd-b757-66c3bc72f38d");
             CanonicalName = "com.net.spotify";
             Icon = ImageToBase64String(Resources.spotify.ToBitmap(), ImageFormat.Png);
+            
         }
 
+
+        private void CountForever()
+        {
+            int i = 0;
+            while (true)
+            {
+                i++;
+               // PluginEvent?.Invoke(this, EventArgs.Empty);
+            }
+        }
         public override object Start(List<object> args = null)
         {
             if (args == null) return null;
@@ -36,12 +49,15 @@ namespace SpotifySampler
                     sw.WriteLine($"Plugin {Name} has run!");
                 }
             }
+            Task.Run(() => {
+               CountForever();
+            });
             return data;
         }
 
         public override void Setup()
         {
-            throw new NotImplementedException();
+            
         }
 
         #region utils

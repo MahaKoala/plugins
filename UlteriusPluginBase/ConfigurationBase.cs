@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using System.Configuration;
-using System.Collections.Generic;
 
 namespace UlteriusPluginBase
 {

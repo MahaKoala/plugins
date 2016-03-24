@@ -14,8 +14,7 @@ namespace UlteriusPluginBase
     /// <summary>
     /// Plugin manager class to interact with the host application
     /// </summary>
-    [Serializable]
-    public sealed class PluginManager 
+    public sealed class PluginManager : MarshalByRefObject
     {
         // Dictionary that contains instances of assemblies for loaded plugins
         private readonly Dictionary<Assembly, PluginBase> plugins;
@@ -23,7 +22,7 @@ namespace UlteriusPluginBase
         /// <summary>
         /// Default constructor. Plugins will be loaded into the same application domain as the host application
         /// </summary>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust")]
+        [PermissionSetAttribute(SecurityAction.LinkDemand, Name = "FullTrust")]
         public PluginManager()
         {
             plugins = new Dictionary<Assembly, PluginBase>();
@@ -40,7 +39,7 @@ namespace UlteriusPluginBase
         /// </summary>
         /// <param name="grantSet">Permission set to grant</param>
         /// <returns>Instance of the PluginManager's class</returns>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust")]
+        [PermissionSetAttribute(SecurityAction.LinkDemand, Name = "FullTrust")]
         public static PluginManager GetInstance(PermissionSet grantSet)
         {
             if (grantSet == null)
@@ -55,13 +54,13 @@ namespace UlteriusPluginBase
 
             return Activator.CreateInstanceFrom(sandbox, typeof(PluginManager).Assembly.ManifestModule.FullyQualifiedName, typeof(PluginManager).FullName).Unwrap() as PluginManager;
         }
-        
+
         /// <summary>
         /// Loads a plugin
         /// </summary>
         /// <param name="fullName">Full path to a plugin's file</param>
         /// <returns>Instance of the loaded plugin's class</returns>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust")]
+        [PermissionSetAttribute(SecurityAction.LinkDemand, Name = "FullTrust")]
         public PluginBase LoadPlugin(string fullName)
         {
             Assembly pluginAssembly;
@@ -109,12 +108,11 @@ namespace UlteriusPluginBase
                     pset.AddPermission(new ConfigurationPermission(PermissionState.Unrestricted));
                     pset.Assert();
 
-                    if (pluginInstance != null)
-                        pluginInstance.Configuration =
-                            typeof(ConfigurationBase)
-                                .GetMethod("Open")
-                                .MakeGenericMethod(pluginConfigurationType)
-                                .Invoke(null, new object[] { Path.GetFileNameWithoutExtension(fullName), processPath }) as ConfigurationBase;
+                    pluginInstance.Configuration =
+                        typeof(ConfigurationBase)
+                        .GetMethod("Open")
+                        .MakeGenericMethod(pluginConfigurationType)
+                        .Invoke(null, new object[] { Path.GetFileNameWithoutExtension(fullName), processPath }) as ConfigurationBase;
                 }
                 finally
                 {
