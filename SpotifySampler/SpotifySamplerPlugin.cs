@@ -47,11 +47,11 @@ namespace SpotifySampler
                 using (var sw = new FileInfo(((LogicConfiguration) Configuration).FileName).CreateText())
                 {
                     sw.WriteLine($"Plugin {Name} has run!");
+
                 }
+
+
             }
-            Task.Run(() => {
-               CountForever();
-            });
             return data;
         }
 
