@@ -85,10 +85,6 @@ namespace UlteriusPluginBase
         /// </summary>
         public abstract void Setup();
 
-        /// <summary>
-        /// Plugin's Event Handler
-        /// </summary>
-        public virtual EventHandler PluginEvent { get; set; }
 
 
 
