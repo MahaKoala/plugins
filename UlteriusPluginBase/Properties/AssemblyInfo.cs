@@ -1,21 +1,36 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Security;
 
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
 [assembly: AssemblyTitle("UlteriusPluginBase")]
-[assembly: AssemblyDescription("Plugin base for all Ulterius Plugins")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Strike Org")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("UlteriusPluginBase")]
-[assembly: AssemblyCopyright("Copyright © Strike Org")]
+[assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
+// Setting ComVisible to false makes the types in this assembly not visible 
+// to COM components.  If you need to access a type in this assembly from 
+// COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
-[assembly: Guid("6684d502-f12f-4616-8919-70def909baa1")]
+// The following GUID is for the ID of the typelib if this project is exposed to COM
+[assembly: Guid("dc2d91fe-d7ab-495f-a7a5-6fe8b4757b95")]
 
-[assembly: AssemblyVersion("2.0.0.0")]
-[assembly: AssemblyFileVersion("2.0.0.0")]
-
-[assembly: AllowPartiallyTrustedCallers]
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Build and Revision Numbers 
+// by using the '*' as shown below:
+// [assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

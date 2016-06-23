@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DC2D91FE-D7AB-495F-A7A5-6FE8B4757B95}</ProjectGuid>
+    <ProjectGuid>{663EEAEB-CAE3-42BB-B803-6E662DD32BCF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UlteriusPluginBase</RootNamespace>
-    <AssemblyName>UlteriusPluginBase</AssemblyName>
+    <RootNamespace>ExamplePlugin</RootNamespace>
+    <AssemblyName>ExamplePlugin</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -30,6 +30,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,6 +48,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="UlteriusPluginBase">
+      <HintPath>..\UlteriusPluginBase\bin\Debug\UlteriusPluginBase.dll</HintPath>
+    </Reference>
     <Reference Include="vtortola.WebSockets, Version=2.2.0.3, Culture=neutral, PublicKeyToken=7f78616efb4a208d, processorArchitecture=MSIL">
       <HintPath>..\packages\vtortola.WebSocketListener.2.2.0.3\lib\net45\vtortola.WebSockets.dll</HintPath>
       <Private>True</Private>
@@ -58,8 +65,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IUlteriusPlugin.cs" />
+    <Compile Include="MyExamplePlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
